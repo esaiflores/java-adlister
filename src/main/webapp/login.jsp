@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Jedi
@@ -8,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>LogIn Page</title>
+    <title>Log In Page</title>
 </head>
 <body>
 
@@ -19,6 +20,9 @@
     <input type="text" id="password" name="password">
     <button>Submit</button>
 
+    <c:if test="${param.userName.equalsIgnoreCase('admin') && param.password.equalsIgnoreCase('password')}">
+        <% response.sendRedirect("/profile.jsp");%>
+    </c:if>
 </form>
 
 </body>
